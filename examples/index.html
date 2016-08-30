@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <title>vc-tag</title>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            background: rgba(119, 129, 149, 0.8);
+        }
+        .container {
+            width: 380px;
+            padding: 20px;
+        }
+        .container label {
+            font-weight: normal;
+        }
+        .btn {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">@Vue Component - vc-tag</h1>
+    <div class="text-center">标签组件，用于分类和标示</div>
+    <hr>
+
+    <div id="app" class="container">
+
+        <button class="btn btn-success btn-sm" @click="toggle">toggle</button>
+        <button class="btn btn-default btn-sm" @click="toggleCloseable">toggle关闭按钮</button>
+        <br>
+        <button class="btn btn-danger btn-sm" @click="deleteLg">删除大tag</button>
+        <button class="btn btn-default btn-sm" @click="showSm">出现小tag</button>
+        <button class="btn btn-warning btn-sm" @click="disabledDefault">disabled default-size tag</button>
+
+        <hr>
+
+        <vc-tag
+            :show.sync="show"
+            :label="label"
+            :disabled="disabled"
+            :size="size"
+            :status="status"
+            :closeable="closeable"
+            :on-close="onClose"
+            :after-close="afterClose"
+        >
+        </vc-tag>
+
+        <div class="form-group">
+            <label>配置组件的label属性</label>
+            <input type="text" class="form-control" placeholder="label" v-model="label" />
+        </div>
+
+        <div class="form-group">
+            <div>show</div>
+            <label><input type="radio" :value="bools.true" name="show" v-model="show">是</label>
+            <label><input type="radio" :value="bools.false" name="show" v-model="show">否</label>
+        </div>
+
+        <div class="form-group">
+            <div>status</div>
+            <label><input type="radio" value="default" name="size" v-model="size">default</label>
+            <label><input type="radio" value="small" name="size" v-model="size">small</label>
+            <label><input type="radio" value="large" name="size" v-model="size">large</label>
+        </div>
+
+        <div class="form-group">
+            <div>disabled</div>
+            <label><input type="radio" :value="bools.true" name="disabled" v-model="disabled">是</label>
+            <label><input type="radio" :value="bools.false" name="disabled" v-model="disabled">否</label>
+        </div>
+
+        <div class="form-group">
+            <div>closeable</div>
+            <label><input type="radio" :value="bools.true" name="closeable" v-model="closeable">是</label>
+            <label><input type="radio" :value="bools.false" name="closeable" v-model="closeable">否</label>
+        </div>
+
+        <div class="form-group">
+            <div>status</div>
+            <label><input type="radio" value="success" name="status" v-model="status">success</label>
+            <label><input type="radio" value="info" name="status" v-model="status">info</label>
+            <label><input type="radio" value="warning" name="status" v-model="status">warning</label>
+            <label><input type="radio" value="danger" name="status" v-model="status">danger</label>
+        </div>
+
+    </div>
+    <script src='../dist/example.js'></script>
+</body>
+</html>
