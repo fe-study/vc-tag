@@ -1,3 +1,4 @@
-import vcTag from './components/Tag'
+import vcTag from './Tag.vue'
 
-module.exports = vcTag
+export default vcTag
+export { vcTag }

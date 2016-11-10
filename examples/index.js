@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import vcTag from '../dist/build.js'
+import vcTag from '../src/Tag.vue'
 
 new Vue({
 	el: '#app',

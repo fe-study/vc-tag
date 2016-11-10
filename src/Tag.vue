@@ -7,7 +7,7 @@
             :disabled="disabled"
         >
             <span class="vc-tag-text">{{ label }}</span>
-            <i v-show="closeable" @click="handleClear" class="clear-it glyphicon glyphicon-remove" aria-hidden="true"></i>
+            <i v-show="!disabled && closeable" @click="handleClear" class="clear-it glyphicon glyphicon-remove" aria-hidden="true"></i>
         </button>
     </div>
 </template>
@@ -115,6 +115,7 @@
 
 <script>
 export default {
+    name: 'vc-tag',
     props: {
         show: {
             type: Boolean,
@@ -175,12 +176,6 @@ export default {
                 this.afterClose && this.afterClose()
             }, false)
         }
-    },
-    beforeDestroy: function () {
-
-    },
-    destroy: function () {
-
     }
 }
 </script>
